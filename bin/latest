@@ -1,0 +1,6 @@
+unset -v latest
+for file in *; do
+  [[ $file -nt $latest ]] && latest=$file
+done
+
+echo $file
