@@ -13,6 +13,7 @@ else
 
     for file in $dir/*; do
       echo $file
+      break
     done
   done
 fi
