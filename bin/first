@@ -1,10 +1,8 @@
-unset -v latest
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
   for file in *; do
-    [[ $file -nt $latest ]] && latest=$file
+    echo $file
+    exit 0
   done
-
-  echo $latest
 else
   for dir in $@; do
     if [ ! -d $dir ]; then
@@ -14,9 +12,8 @@ else
     dir=$(echo $dir | sed 's/\/$//')
 
     for file in $dir/*; do
-      [[ $file -nt $latest ]] && latest=$file
+      echo $file
     done
-
-    echo $latest
   done
 fi
+
